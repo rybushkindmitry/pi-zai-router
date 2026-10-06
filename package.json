@@ -1,6 +1,6 @@
 {
   "name": "rybushkindmitry-pi-zai-router",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Pi extension: virtual <provider>/auto model that routes planning/implementation/images/compaction across z.ai subscription models (Jev-classified planning, sticky implementation)",
   "keywords": [
     "pi-package"

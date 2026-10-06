@@ -33,7 +33,11 @@ pi install git:github.com/rybushkindmitry/pi-zai-router@v1
 ```
 
 Пакет подключается в `~/.pi/agent/settings.json` (`packages`) и действует
-во всех проектах. Обновление: `pi update --extensions`.
+во всех проектах.
+
+Пин на тег: `pi update --extensions` пересинхронизирует checkout, но не
+сдвигает ref — чтобы обновиться до новой версии, установите её явно:
+`pi install git:github.com/rybushkindmitry/pi-zai-router@v1.0.1`.
 
 ## Настройка машины (одноразовая)
 
@@ -135,6 +139,9 @@ pi install git:github.com/rybushkindmitry/pi-zai-router@v1
 | `ZAI_ROUTER_COMPLEX_MODEL` | `glm-5.3` | модель планирования |
 | `ZAI_ROUTER_FAST_MODEL` | `glm-5.3-flash` | модель реализации, картинок и compaction |
 | `ZAI_ROUTER_QUIET` | — | `1` отключает диагностический лог |
+
+Переменные читаются один раз при старте pi; пустое или пробельное значение
+считается неустановленным (берётся дефолт).
 
 ## Диагностика
 

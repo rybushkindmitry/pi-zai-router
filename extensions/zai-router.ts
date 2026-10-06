@@ -19,6 +19,9 @@
  * - ZAI_ROUTER_COMPLEX_MODEL модель планирования (default: glm-5.3)
  * - ZAI_ROUTER_FAST_MODEL    модель реализации/compaction (default: glm-5.3-flash)
  * - ZAI_ROUTER_QUIET=1       отключить диагностический лог
+ *
+ * Переменные читаются один раз при загрузке расширения; пустое или пробельное
+ * значение считается неустановленным (берётся дефолт).
  */
 
 import { appendFileSync } from "node:fs";
@@ -32,9 +35,9 @@ import type {
 	ModelRouteRequest,
 } from "@earendil-works/pi-coding-agent";
 
-const PROVIDER = process.env.ZAI_ROUTER_PROVIDER ?? "zai";
-const COMPLEX_MODEL = process.env.ZAI_ROUTER_COMPLEX_MODEL ?? "glm-5.3";
-const FAST_MODEL = process.env.ZAI_ROUTER_FAST_MODEL ?? "glm-5.3-flash";
+const PROVIDER = process.env.ZAI_ROUTER_PROVIDER?.trim() || "zai";
+const COMPLEX_MODEL = process.env.ZAI_ROUTER_COMPLEX_MODEL?.trim() || "glm-5.3";
+const FAST_MODEL = process.env.ZAI_ROUTER_FAST_MODEL?.trim() || "glm-5.3-flash";
 
 /** Инструменты, чей успешный результат означает, что реализация началась. */
 const EDIT_TOOLS = new Set(["edit", "write"]);
