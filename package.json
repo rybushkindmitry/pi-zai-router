@@ -1,0 +1,22 @@
+{
+  "name": "rybushkindmitry-pi-zai-router",
+  "version": "1.0.0",
+  "description": "Pi extension: virtual <provider>/auto model that routes planning/implementation/images/compaction across z.ai subscription models (Jev-classified planning, sticky implementation)",
+  "keywords": [
+    "pi-package"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rybushkindmitry/pi-zai-router.git"
+  },
+  "peerDependencies": {
+    "@earendil-works/pi-ai": "*",
+    "@earendil-works/pi-coding-agent": "*"
+  },
+  "pi": {
+    "extensions": [
+      "./extensions"
+    ]
+  }
+}
