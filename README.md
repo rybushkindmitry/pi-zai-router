@@ -29,15 +29,15 @@
 ## Установка
 
 ```bash
-pi install git:github.com/rybushkindmitry/pi-zai-router@v1
+pi install git:github.com/rybushkindmitry/pi-zai-router@v1.0.1
 ```
 
 Пакет подключается в `~/.pi/agent/settings.json` (`packages`) и действует
 во всех проектах.
 
 Пин на тег: `pi update --extensions` пересинхронизирует checkout, но не
-сдвигает ref — чтобы обновиться до новой версии, установите её явно:
-`pi install git:github.com/rybushkindmitry/pi-zai-router@v1.0.1`.
+сдвигает ref — чтобы обновиться до новой версии, установите её явно,
+подставив свежий тег вместо `v1.0.1`.
 
 ## Настройка машины (одноразовая)
 
@@ -157,6 +157,19 @@ pi install git:github.com/rybushkindmitry/pi-zai-router@v1
 `@earendil-works/pi-ai` и `@earendil-works/pi-coding-agent` предоставляет хост
 (объявлены в `peerDependencies` со спецификатором `"*"` — не бандлить).
 Проверить без установки: `pi -e ./extensions/zai-router.ts`.
+
+## Решения
+
+Ключевые архитектурные решения зафиксированы в ADR (один файл = одно решение,
+ревизия — новый ADR с `supersedes`):
+
+| ADR | Решение |
+| --- | --- |
+| [ADR-0001](docs/adr/adr-0001-git-package-and-policy-split.md) | Код — в git-пакете с пином на теги; деплой-политика моделей — в локальных настройках машины |
+| [ADR-0002](docs/adr/adr-0002-env-model-configuration.md) | Модели роутера конфигурируются env `ZAI_ROUTER_*`; пустое значение — дефолт |
+
+Индекс всех ADR: [docs/adr/](docs/adr/README.md). Что выкачено и когда —
+[docs/implementation-status.md](docs/implementation-status.md).
 
 ## Лицензия
 
