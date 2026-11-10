@@ -11,7 +11,7 @@
  *   независимо от фазы: complex-модель картинки не принимает.
  * - Запросы вне агентного цикла (компакция и т.п.) → fast-модель.
  *
- * Требуются ключи TYPESAFE_API_KEY (Jev) и zai (подписка).
+ * Требуются ключи OPENROUTER_API_KEY (Jev, через openrouter) и zai (подписка).
  * Выбор уровня thinking передаётся выбранной модели как есть.
  *
  * Конфигурация через переменные окружения (значения по умолчанию — z.ai):
@@ -111,7 +111,9 @@ async function choosePlanningModel(
 		return previous.id;
 	}
 
-	const jev = ctx.modelRegistry.findOfType("classifier", "typesafe", "jev-latest");
+	// Прямой доступ к api.typesafe.ai сломан (организация деактивирована, 403);
+	// та же модель Jev доступна через openrouter (~typesafe/jev-latest).
+	const jev = ctx.modelRegistry.findOfType("classifier", "openrouter", "~typesafe/jev-latest");
 	if (!jev) {
 		routerLog(`  jev: недоступен -> ${FAST_MODEL}`);
 		return FAST_MODEL;

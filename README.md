@@ -21,8 +21,9 @@
 ## Требования
 
 - Ключ подписки z.ai — в `~/.pi/agent/auth.json`, секция `"zai"`.
-- (Опционально) ключ Jev-классификатора `typesafe`: env `TYPESAFE_API_KEY`
-  или секция `"typesafe"` в `auth.json`. Без него роутер сразу выбирает
+- (Опционально) ключ Jev-классификатора через `openrouter` (модель
+  `~typesafe/jev-latest`): env `OPENROUTER_API_KEY` или секция `"openrouter"`
+  в `auth.json`. Без него роутер сразу выбирает
   fast-модель — работать не перестаёт.
 - Модели complex/fast должны существовать в каталоге провайдера (см. ниже).
 
